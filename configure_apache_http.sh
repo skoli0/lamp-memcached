@@ -47,11 +47,12 @@ function main() {
     cleanup_system
 }
 
+
 function configure_system() {
     export DEBIAN_FRONTEND=noninteractive
     apt-get update -y
     apt-get install curl
-    #apt-get upgrade -y
+    apt-get upgrade -y
 }
 
 function configure_network() {
