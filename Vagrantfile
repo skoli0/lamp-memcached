@@ -1,6 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Vagrantfile to download Ubuntu 16.04 Desktop vagrant box from cloud,
+# install Apache2, configure it to server HTTP, then HTTPS, opens links,
+# install memcahced, configure i, set test data to be displayed on page,
+# add a cronjob which runs once per minute,
+# install PHP, reconfigure Apache2 to serve .php by default
+# create memcached monitoring web page and load it automatically
+#
 Vagrant.configure("2") do |config|
   # Vagrant VM box, a shorthand name of a box in HashiCorp's Vagrant Cloud.
   config.vm.box = "boxcutter/ubuntu1604-desktop"
