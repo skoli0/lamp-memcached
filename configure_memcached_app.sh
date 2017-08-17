@@ -5,6 +5,7 @@ set -x
 #          Installs PHP, PHP-Memcache PHP-Memcached modules and adds memcached web app to monitor memcached stats
 # -------------------------------------------------------------------------------------------------------------------------------
 
+# Installs PHP, PHP-Memcache PHP-Memcached modules
 function configure_php() {
     # Set DEBIAN_FRONTEND environmental variable to apt-get noninteractive install
     export DEBIAN_FRONTEND=noninteractive
@@ -23,6 +24,7 @@ function configure_php() {
     sed -i '/DirectoryIndex /c\\tDirectoryIndex index.php index.html index.cgi index.pl index.xhtml index.htm' /etc/apache2/mods-enabled/dir.conf
 }
 
+# Adds memcached web app to monitor memcached stats
 function configure_memcached_stats_app() {    
     # Untar app.tar.gz in document root directory /var/www/
     echo "--- Untar app.tar.gz in document root directory /var/www/..."
