@@ -5,6 +5,7 @@ set -x
 #          Sets appropriate environmental variables, installs memcached and sets test data for memcached stats to display on page
 # -------------------------------------------------------------------------------------------------------------------------------
 
+# Installs memcached 
 function configure_memcached() {
 	export DEBIAN_FRONTEND=noninteractive
     # Install memcachedd, a high-performance memory object caching system service
@@ -12,6 +13,7 @@ function configure_memcached() {
 	apt-get install memcached -y
 }
 
+# Installs memcached and sets test data for memcached stats to display on page
 function set_memcached_data() {
     set +x
     # Set memcache data for testing, to show on stats page
