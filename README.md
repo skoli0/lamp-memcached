@@ -11,7 +11,7 @@ This is a DevOps project to download Ubuntu 16.04 Desktop vagrant box from cloud
 2. Reconfigures Apache2 to run using HTTPS rather than HTTP. Creates self-signed certificates and use the to run HTTPS. Opens a link, https://localhost:8443/app
 	- You will get an exception about an insecure connection due to the self-signed cert. Feel free to ignore this.
 5. Installs memcached and sets test data (hits/misses)
-6. Adds a cronjob that runs /home/vagrant/exercise-memcached.sh once per minute # ROLE OF CRON JOB
+6. Adds a cronjob that runs /home/vagrant/exercise-memcached.sh once per minute
 7. Writes a PHP web application that outputs memcached stats
 	- It additionally calculates the "get" hit rate and show it as a percentage ("X% of gets missed the cache")
      - It additionally shows the percentage of memcached memory used
