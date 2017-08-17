@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 # -------------------------------------------------------------------------------------------------------------------------------
-# [Author] Sandeep Koli
+# [Author] skoli0
 #          Sets appropriate environmental variables, installs memcached and sets test data for memcached stats to display on page
 # -------------------------------------------------------------------------------------------------------------------------------
 
