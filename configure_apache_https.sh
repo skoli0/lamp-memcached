@@ -95,9 +95,6 @@ EOF
     # Check Apache is up and running
     check_service_status
     
-    # Testing app virtual host by opening a URL in the user's preferred application
-    #sh -c "xdg-open https://localhost:8443/app &"
-
     # Testing app virtual host by using curl (non-gui) and just ignore SSL certificate
     # Curl to app link in case server is installed without GUI...
     curl -L -k -s https://localhost:8443/app
