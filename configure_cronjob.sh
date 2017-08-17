@@ -10,6 +10,7 @@ MEMCACHED_EXERCISE_CRONLOG=$HOME/exercise-memcached.log
 # Create new memcached exercise cron job in one line
 crontab -l | grep "$MEMCACHED_EXERCISE" || (crontab -l 2>/dev/null; echo "* * * * * $MEMCACHED_EXERCISE") | crontab -
 
+# Remove previous files to avoid redundancy
 rm -rfv ${MEMCACHED_EXERCISE}
 rm -rfv ${MEMCACHED_EXERCISE_CRONLOG}
 
