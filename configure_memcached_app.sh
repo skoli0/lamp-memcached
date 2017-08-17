@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 # -------------------------------------------------------------------------------------------------------------------------------
-# [Author] Sandeep Koli
+# [Author] skoli0
 #          Installs PHP, PHP-Memcache PHP-Memcached modules and adds memcached web app to monitor memcached stats
 # -------------------------------------------------------------------------------------------------------------------------------
 
