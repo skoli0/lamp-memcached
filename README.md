@@ -18,4 +18,4 @@ This is a DevOps project to download Ubuntu 16.04 Desktop vagrant box from cloud
   
 This project has vagrant file and provisioning scripts/configs that recreate everything mentioned above. Just run `vagrant up`, and have your completed and fixed environment running with memcached stats web page.
 
-![Alt text](screenshot/lamp-memcached-web-page.png?raw=true "Web page screenshot")
+![Alt text](screenshot/lamp-memcached-web-page.png "Web page screenshot")
