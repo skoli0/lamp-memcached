@@ -17,5 +17,3 @@ This is a DevOps project to download Ubuntu 16.04 Desktop vagrant box from cloud
      - It additionally shows the percentage of memcached memory used
   
 This project has vagrant file and provisioning scripts/configs that recreate everything mentioned above. Just run `vagrant up`, and have your completed and fixed environment running with memcached stats web page.
-
-![alt text](screenshots/filename.png "Web page displaying memcached stats")
