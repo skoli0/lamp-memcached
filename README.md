@@ -1,6 +1,6 @@
 # lamp-memcahed
 
-This is a DevOps project to download Ubuntu 16.04 Desktop vagrant box from cloud, install Apache2, configure it to serve web pages over HTTP, then HTTPS, install memcached and PHP, reconfigure Apache2 to serve PHP pages instead of .html. This is the fully automated process to end up with a reproducible image and a memcached monitor web page usinf vagrant distributed virtual machine environment technology.
+This is a DevOps project to download Ubuntu 16.04 Desktop vagrant box from cloud, install Apache2, configure it to serve web pages over HTTP, then HTTPS, install memcached and PHP, reconfigure Apache2 to serve PHP pages instead of .html. This is the fully automated process to end up with a reproducible image and a memcached monitor web page using vagrant distributed virtual machine environment technology.
 
 # setup
 1. Download and install virtualbox (https://www.virtualbox.org/)
