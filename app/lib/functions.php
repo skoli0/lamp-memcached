@@ -7,19 +7,19 @@ function request_handler()
 {
 
 	$functionName = $_GET['function'];
-	
+
 	if(function_exists($functionName))
 	{
-	
+
 		$function = new ReflectionFunction($functionName);
 		echo $function->invoke();
-		
+
 	}
 	else
 	{
-		
+
 		echo 'Function doesn\'t exist: '.$functionName;
-		
+
 	}
 
 }
@@ -29,26 +29,26 @@ function post_var($key, $required = true)
 
 	if(isset($_POST[$key]))
 	{
-		
+
 		if($_POST[$key] == '')
 		{
-			
+
 			return false;
-			
+
 		}
 		else
 		{
-			
+
 			return $_POST[$key];
-			
+
 		}
-		
+
 	}
 	else
 	{
-		
+
 		return false;
-		
+
 	}
 
 }
@@ -60,41 +60,41 @@ function set_notification($message = 'Notifications are nice', $css_classes = ''
 		'message' => $message,
 		'css_classes' => $css_classes
 	);
-	
+
 	$_SESSION['notification'] = serialize($notification);
 
 }
 
 function notification()
 {
-	
+
 	if(isset($_SESSION['notification']))
 	{
-		
+
 		$notification = unserialize($_SESSION['notification']);
-		
+
 		extract($notification);
-		
+
 		$notification = '<div class="notification '.$css_classes.'">'.$message.'</div>';
-		
+
 		echo $notification;
-		
+
 		unset($_SESSION['notification']);
-		
+
 	}
-		
+
 }
 
 function error_handler($num, $str, $file, $line, $context)
 {
 
 	echo '
-	
+
 	<div class="php-error">
-	
+
 		<div class="error-container">
 			<h1>PHP Error</h1>
-			
+
 			<table cellpadding="0" cellspacing="0" border="0" width="100%">
 				<tr>
 					<td><strong>Type</strong></td>
@@ -110,9 +110,9 @@ function error_handler($num, $str, $file, $line, $context)
 				</tr>
 			</table>
 		</div>
-		
+
 		<div class="full-overlay"></div>
-	
+
 	</div>
 	';
 
@@ -122,19 +122,19 @@ function array_to_object($array)
 {
 
 	$object = new stdClass();
-	
+
 	foreach($array as $key => $value)
 	{
-	
+
 	    $object->$key = $value;
-	    
+
 	}
-	
+
 	return $object;
 
 }
 
-function seconds_to_time($input_seconds) 
+function seconds_to_time($input_seconds)
 {
 
     $secs_in_min = 60;
@@ -162,69 +162,69 @@ function seconds_to_time($input_seconds)
         'm' => (int) $minutes,
         's' => (int) $seconds,
     );
-    
+
     return $array;
-    
+
 }
 
 function format_bytes($bytes)
 {
-	
+
 	if($bytes < 1024)
-	{ 
-	
+	{
+
 		return $bytes.' B';
 
 	}
 	elseif($bytes < 1048576)
-	{ 
-	
+	{
+
 		return round($bytes / 1024, 2).' KB';
-	
+
 	}
 	elseif($bytes < 1073741824)
-	{ 
-	
+	{
+
 		return round($bytes / 1048576, 2).' MB';
-	
+
 	}
 	elseif($bytes < 1099511627776)
-	{ 
-	
+	{
+
 		return round($bytes / 1073741824, 2).' GB';
-	
+
 	}
 	else
-	{ 
-	
+	{
+
 		return round($bytes / 1099511627776, 2).' TB';
-		
+
 	}
 
 }
 
 function get_statistics()
 {
-	
+
 	$memcache = new Memcache();
-	
+
 	$cache_available = $memcache->connect(MC_HOST, MC_PORT);
-		
+
 	$stats_array = $memcache->getStats();
 	$stats = array_to_object($stats_array);
-	
+
 	$uptime = seconds_to_time($stats->uptime);
 	$uptime_str = $uptime['d'].'d '.$uptime['h'].'h '.$uptime['m'].'m '.$uptime['s'].'s';
 	$cache_size = format_bytes($stats->limit_maxbytes);
 	$cache_used = format_bytes($stats->bytes);
-	
+
 	$stats->uptime_str = $uptime_str;
 	$stats->cache_size = $cache_size;
 	$stats->cache_used = $cache_used;
 	$stats->time = date('d-m-Y H:i:s', $stats->time);
-	
+
 	header('Content-Type: application/json');
-	
+
 	echo json_encode($stats);
 
 }
