@@ -1,11 +1,12 @@
 #!/bin/bash
 set -x
-# -------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # [Author] skoli0
-#          Sets appropriate environmental variables, installs memcached and sets test data for memcached stats to display on page
-# -------------------------------------------------------------------------------------------------------------------------------
+#          Sets appropriate environmental variables, installs memcached and sets
+#          test data for memcached stats to display on page
+# ------------------------------------------------------------------------------
 
-# Installs memcached 
+# Installs memcached
 function configure_memcached() {
 	export DEBIAN_FRONTEND=noninteractive
     # Install memcachedd, a high-performance memory object caching system service

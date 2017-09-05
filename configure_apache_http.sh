@@ -1,9 +1,10 @@
 #!/bin/bash
 set -x
-# -------------------------------------------------------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------------------
 # [Author] skoli0
-#          Sets appropriate environmental variables, installs Apache2, configures it to run using HTTP
-# -------------------------------------------------------------------------------------------------------------------------------
+#          Sets appropriate environmental variables, installs Apache2,
+#          configures it to run using HTTP
+# -------------------------------------------------------------------------------------------
 
 # Default user of the system
 user="vagrant"
@@ -70,7 +71,7 @@ function configure_apache_https() {
 }
 
 function configure_apache_http() {
-    apt-get install apache2 -y 
+    apt-get install apache2 -y
     # Setup instance of Apache on port 8080
     #####Testing purpose only
     sed -i '/Listen 8080/d' /etc/apache2/ports.conf
@@ -97,10 +98,10 @@ function configure_apache_http() {
     chown -R www-data:www-data ${project_doc_root}/${project_web_root}
     chmod -R 755 ${project_doc_root}/${project_web_root}
     chown -R ${user} ${project_doc_root}/${project_web_root}
-    
+
     # Disable default virtual host file
     a2dissite 000-default.conf
-    
+
     # Create new virtual host file
     rm -rfv ${apache_vhost_file}
 
@@ -121,20 +122,20 @@ CustomLog /var/log/apache2/app_access.log combined
     AllowOverride All
     Require all granted
 </Directory>
-   
+
 </VirtualHost>
 EOF
     fi
-    
+
     # Enable the new virtual host
     a2ensite app.conf
-    
+
     # Finally, restart the Apache service.
     /etc/init.d/apache2 restart
-    
+
     # Check Apache is up and running
     check_service_status
-    
+
     # Provision scripts gets executed as root user by default, launch web browser as vagrant user
     runuser -l vagrant -c "export DISPLAY=:0.0; xdg-open http://localhost:8080/app > /dev/null 2>&1 &"
 }
@@ -157,4 +158,3 @@ cleanup_system() {
 }
 
 main
-

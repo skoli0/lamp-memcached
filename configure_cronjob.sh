@@ -1,8 +1,9 @@
 #!/bin/bash
-# -------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # [Author] skoli0
-#          Add a cronjob that runs /home/vagrant/exercise-memcached.sh once per minute
-# -------------------------------------------------------------------------------------------------------------------------------
+#          Add a cronjob that runs /home/vagrant/exercise-memcached.sh
+#          once per minute
+# ------------------------------------------------------------------------------
 
 MEMCACHED_EXERCISE=$HOME/exercise-memcached.sh
 MEMCACHED_EXERCISE_CRONLOG=$HOME/exercise-memcached.log
